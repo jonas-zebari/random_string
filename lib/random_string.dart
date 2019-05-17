@@ -51,18 +51,18 @@ const _symbols = ['!', '@', '#', '\$', '%', '^', '&', '*', '(', ')', '-', '+', '
 /// ```
 ///
 /// {@end-tool}
-String randomString(int length, {bool includeNumbers = true, bool includeLowerCase = true, bool includeUpperCase = true, bool includeSymbols = true, bool useCharOnce = false, int seed, Set<String> exclusions}) {
+String randomString(int length, {bool includeNumbers = true, bool includeLowercase = true, bool includeUppercase = true, bool includeSymbols = true, bool useCharOnce = false, int seed, Set<String> exclusions}) {
   if (length.isNegative || length.isNaN || length.isInfinite)
     throw ArgumentError('Length must be a positive and finite number.');
-  if (!includeLowerCase && !includeUpperCase && !includeNumbers && !includeSymbols)
+  if (!includeLowercase && !includeUppercase && !includeNumbers && !includeSymbols)
     return '';
   if (length == 0)
     return '';
 
   // Build list of string choices
   final List<String> characters = [
-    if (includeLowerCase) ..._lowercase,
-    if (includeUpperCase) ..._uppercase,
+    if (includeLowercase) ..._lowercase,
+    if (includeUppercase) ..._uppercase,
     if (includeNumbers) ..._numbers,
     if (includeSymbols) ..._symbols,
   ];
