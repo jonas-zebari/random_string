@@ -78,8 +78,8 @@ String randomString(int length, {bool includeNumbers = true, bool includeLowerca
     final randomCharacter = characters[rand.nextInt(characters.length)];
     buffer.write(randomCharacter);
     if (useCharOnce) {
+      if (characters.length <= 1) break;
       characters.remove(randomCharacter);
-      if (characters.length <= 0) break;
     }
   }
 
