@@ -66,6 +66,9 @@ String randomString(
     if (includeSymbols) ...symbols,
   ];
 
+  if (exclusions != null)
+    characters.removeWhere((value) => exclusions.contains(value));
+
   // Write random characters to buffer
   final buffer = StringBuffer();
   final rand = Random(seed);
