@@ -1,6 +1,7 @@
 library random_string;
 
 import 'dart:math';
+
 import 'constants.dart';
 
 /// Returns a random string that respects the given parameters.
@@ -17,7 +18,7 @@ import 'constants.dart';
 ///
 /// {@tool sample}
 ///
-/// A 16-character string containing any character.
+/// A 16-character string containing any printable character.
 ///
 /// ```dart
 /// final myString = randomString(16);
@@ -66,6 +67,7 @@ String randomString(
     if (includeSymbols) ...symbols,
   ];
 
+  // Remove present exclusions from the possible characters
   if (exclusions != null)
     characters.removeWhere((value) => exclusions.contains(value));
 
@@ -73,11 +75,11 @@ String randomString(
   final buffer = StringBuffer();
   final rand = Random(seed);
   for (int index = 0; index < length; index++) {
-    final randomCharacter = characters[rand.nextInt(characters.length)];
-    buffer.write(randomCharacter);
+    final randIndex = rand.nextInt(characters.length);
+    buffer.write(characters[randIndex]);
     if (useCharOnce) {
       if (characters.length <= 1) break;
-      characters.remove(randomCharacter);
+      characters.removeAt(randIndex);
     }
   }
 
