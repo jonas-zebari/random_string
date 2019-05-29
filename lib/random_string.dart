@@ -51,8 +51,9 @@ String randomString(
   int seed,
   Set<String> exclusions,
 }) {
-  if (length.isNegative || length.isNaN || length.isInfinite)
+  if (length.isNegative || length.isNaN || length.isInfinite) {
     throw ArgumentError('Length must be a positive, finite, and real.');
+  }
   if (!includeLowercase &&
       !includeUppercase &&
       !includeNumbers &&
@@ -68,8 +69,9 @@ String randomString(
   ];
 
   // Remove present exclusions from the possible characters
-  if (exclusions != null)
+  if (exclusions != null) {
     characters.removeWhere((value) => exclusions.contains(value));
+  }
 
   // Write random characters to buffer
   final buffer = StringBuffer();

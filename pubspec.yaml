@@ -1,18 +1,8 @@
-name: random_string
-description: A package which allows for modular control over random string generation.
-version: 1.0.0
+name: random_string_one
+description: A package which allows for modular control over random string generation with a single function.
+version: 1.0.2
 author: Jonas Zebari <jonaszebari@gmail.com>
 homepage: https://github.com/jonas-zebari/random_string
 
 environment:
   sdk: ">=2.2.2<3.0.0"
-
-dependencies:
-  flutter:
-    sdk: flutter
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
-flutter:
